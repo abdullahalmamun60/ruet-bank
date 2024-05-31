@@ -48,7 +48,58 @@
     </div>
 
     <div id="transaction-area">
-      <h1>Transaction Area</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="deposit status">
+            <h5>Deposit</h5>
+            <h2>$ <span id="currentDeposit">00</span></h2>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="withdraw status">
+            <h5>Withdraw</h5>
+            <h2>$ <span id="currentWithdraw"> 00 </span></h2>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="balance status">
+            <h5>Balance</h5>
+            <h2>$ <span id="currentBalance"> 1200 </span></h2>
+          </div>
+        </div>
+      </div>
+      <div id="dep-with-area">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="dep-with">
+              <h4>Deposit</h4>
+              <input
+                id="depositAmount"
+                type="text"
+                class="form-control"
+                placeholder="Enter Amount to Deposit"
+              />
+              <br />
+              <button id="addDeposit" class="btn btn-success">Deposit</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="dep-with">
+              <h4>Withdraw</h4>
+              <input
+                id="withdrawAmount"
+                type="text"
+                class="form-control"
+                placeholder="Enter Amount to Withdraw"
+              />
+              <br />
+              <button id="lessWithdraw" class="btn btn-success">
+                Withdraw
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>

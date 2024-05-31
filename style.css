@@ -1,18 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
 .bank {
     margin-top: 100px;
-    font-family: Arial, sans-serif;
     font-weight: bold;
 }
-.submit-area
-    {
-        background-color: aqua;
-        margin-top: 20px;
-        border-radius:10px;
-        box-shadow: 5px 5px 10px gray;
-        padding: 40px 40px 20px ;
-    }
-#transaction-area{
+
+.submit-area {
+    background-image: linear-gradient(to bottom, rgba(0, 195, 255, 0.973) 0%, hsla(150, 100%, 50%, 0.692) 100%);
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+    padding: 40px 40px 20px;
+}
+
+#transaction-area {
     margin: 40px;
     text-align: center;
-    display:none;
+    display: none;
+}
+
+#dep-with-area {
+    margin: 40px;
+    text-align: center;
+    display: none;
+}
+
+.withdraw {
+    background-color: lightsalmon;
+    border-radius: 10px;
+}
+
+.deposit {
+    background-color: slateblue;
+    border-radius: 10px;
+
+}
+
+.balance {
+    background-color: orange;
+    border-radius: 10px;
+}
+
+.status {
+    color: white;
+    margin: 50px 40px 40px 90px;
+    padding: 15px;
+    text-align: left;
+}
+
+.dep-with {
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+    padding: 40px;
+    text-align: left;
+}
+h4{
+    ont;
 }
