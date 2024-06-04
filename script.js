@@ -1,3 +1,4 @@
+// 
 //login button event handler
 const loginBtn = document.getElementById("login");
 loginBtn.addEventListener("click", function () {
@@ -28,6 +29,13 @@ const depositBtn = document.getElementById("addDeposit");
 depositBtn.addEventListener("click", function () {
   const depositAmount = document.getElementById("depositAmount").value;
   const depositNumber = parseFloat(depositAmount) || 0;
+  
+  if (depositNumber <= 0) {
+    alert("Please enter a positive amount to deposit!");
+    document.getElementById("depositAmount").value = ""
+    return;
+  }
+  
   updateBalance("currentDeposit", depositNumber);
   updateBalance("currentBalance", depositNumber);
   document.getElementById("depositAmount").value = "";
@@ -39,7 +47,13 @@ withdrawBtn.addEventListener("click", function () {
   const withdrawAmount = document.getElementById("withdrawAmount").value;
   const withdrawNumber = parseFloat(withdrawAmount) || 0;
   const currentBalance = getCurrentBalance();
-  
+
+  if (withdrawNumber <= 0) {
+    alert("Please enter a positive amount to withdraw!");
+    document.getElementById("withdrawAmount").value = ""
+    return;
+  }
+
   if (withdrawNumber <= currentBalance) {
     updateBalance("currentWithdraw", withdrawNumber);
     updateBalance("currentBalance", -withdrawNumber);
