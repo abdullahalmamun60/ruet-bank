@@ -1,4 +1,4 @@
-//login button event hanndler
+//login button event handler
 const loginBtn = document.getElementById("login");
 loginBtn.addEventListener("click", function () {
   const loginArea = document.getElementById("login-area");
@@ -9,54 +9,42 @@ loginBtn.addEventListener("click", function () {
   depWidArea.style.display = "block";
 });
 
-//function
-function finalDeposit(id,depositNumber) {
-    const currentBalance = document.getElementById(id);
-    const currentBalanceNumber = parseFloat(currentBalance.innerText);
-    const totalBalance = currentBalanceNumber + depositNumber;
-    currentBalance.innerText = totalBalance;
-  }
+//function to update balance
+function updateBalance(id, amount) {
+  const currentElement = document.getElementById(id);
+  const currentAmount = parseFloat(currentElement.innerText);
+  const newBalance = currentAmount + amount;
+  currentElement.innerText = newBalance;
+}
 
-  function textToNumber(id)
-  {
-    const depositAmount = document.getElementById("depositAmount").value;
-    depositNumber = parseFloat(depositAmount) || 00;
-  }
+//function to get the current balance
+function getCurrentBalance() {
+  const currentBalanceElement = document.getElementById("currentBalance");
+  return parseFloat(currentBalanceElement.innerText);
+}
+
 //deposit button event handler
 const depositBtn = document.getElementById("addDeposit");
 depositBtn.addEventListener("click", function () {
-    textToNumber("depositAmount");
-//   const depositAmount = document.getElementById("depositAmount").value;
-//   depositNumber = parseFloat(depositAmount) || 00;
-  finalDeposit("currentDeposit",depositNumber);
-//   const currentDeposit = document.getElementById("currentDeposit");
-//   const currentDepositNumber = parseFloat(currentDeposit.innerText);
-//   const totalDeposit = depositNumber + currentDepositNumber;
-//   currentDeposit.innerText = totalDeposit;
+  const depositAmount = document.getElementById("depositAmount").value;
+  const depositNumber = parseFloat(depositAmount) || 0;
+  updateBalance("currentDeposit", depositNumber);
+  updateBalance("currentBalance", depositNumber);
   document.getElementById("depositAmount").value = "";
-  finalDeposit("currentBalance",depositNumber)
-//   const currentBalance = document.getElementById("currentBalance");
-//   const currentBalanceNumber = parseFloat(currentBalance.innerText);
-//   const totalBalance = currentBalanceNumber + depositNumber;
-//   currentBalance.innerText = totalBalance;
 });
 
 //withdraw button event handler
 const withdrawBtn = document.getElementById("lessWithdraw");
 withdrawBtn.addEventListener("click", function () {
   const withdrawAmount = document.getElementById("withdrawAmount").value;
-  withdrawNumber = parseFloat(withdrawAmount) || 00;
-  finalDeposit("currentWithdraw",withdrawNumber);
-//   const currentWithdraw = document.getElementById("currentWithdraw");
-//   const currentWithdrawNumber = parseFloat(currentWithdraw.innerText);
-//   const totalWithdraw = withdrawNumber + currentWithdrawNumber;
-//   currentWithdraw.innerText = totalWithdraw;
-  document.getElementById("withdrawAmount").value = "";
-  finalDeposit("currentBalance",-1*withdrawNumber)
-//   const currentBalance = document.getElementById("currentBalance");
-//   const currentBalanceNumber = parseFloat(currentBalance.innerText);
-//   const totalBalance = currentBalanceNumber - withdrawNumber;
-//   currentBalance.innerText = totalBalance;
+  const withdrawNumber = parseFloat(withdrawAmount) || 0;
+  const currentBalance = getCurrentBalance();
+  
+  if (withdrawNumber <= currentBalance) {
+    updateBalance("currentWithdraw", withdrawNumber);
+    updateBalance("currentBalance", -withdrawNumber);
+    document.getElementById("withdrawAmount").value = "";
+  } else {
+    alert("Withdrawal amount exceeds current balance!");
+  }
 });
-
-
