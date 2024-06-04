@@ -1,4 +1,4 @@
-// 
+
 //login button event handler
 const loginBtn = document.getElementById("login");
 loginBtn.addEventListener("click", function () {
